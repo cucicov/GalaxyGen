@@ -1,2 +1,2 @@
 # GalaxyGen
-final project from ITPMA programme - Digital arts practice
+final project from ITPMA - Digital arts practice
