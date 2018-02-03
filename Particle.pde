@@ -4,7 +4,7 @@ class Particle {
   PVector acceleration;
   float mass;
   boolean stop = false;
-  
+
   float velocityCoef = 1.0;
 
   Particle(float x, float y, float z) {
@@ -46,9 +46,11 @@ class Particle {
 
 
   void display() {
-    fill(255);
-    //translate()
-    strokeWeight(1);
+    if (random(1) < 0.0001) {
+      strokeWeight(random(5));
+    } else {
+      strokeWeight(1);
+    }
     point(location.x, location.y, location.z);
   }
 
@@ -56,9 +58,8 @@ class Particle {
     if (location.x > width || location.x < -width) {
       velocity.x = velocity.x * -1;
     }
-    if (location.y > height) {
+    if (location.y > height || location.y < -height) {
       velocity.y = velocity.y * -1; 
-      location.y = height;
     }
     if (location.z > random(1000, 2000) || location.z < 0) {
       velocity.z = velocity.z * -1;
@@ -69,11 +70,5 @@ class Particle {
     if (location.z < -1500) {
       location.z = 0;
     }
-    //if (location.x < -3000) {
-    //  location.x = random(3500);
-    //}
-    //if (location.y < -3000) {
-    //  location.y = random(3500);
-    //}
   }
 }
